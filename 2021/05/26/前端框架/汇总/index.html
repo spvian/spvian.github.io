@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="spvian"><meta name="copyright" content="spvian"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>spvian</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_j5gk85dg4pf.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="icon" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"永远相信未来","version":"1.6.1","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><meta name="description" content="Node  Node 中文网文档 Express:基于 Node.js 平台，快速、开放、极简的 Web 开发框架。 koa: Koa – 基于 Node.js 平台的下一代 web 开发框架。 Egg:为企业级框架和应用而生。 Meteor: 一个web APP开发框架。 Nodal: Node.js的网络服务器，经过优化可快速高效地构建API服务。 Keystone: 以Express和Mon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spvian">
+<meta property="og:url" content="http://example.com/2021/05/26/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="spvian">
+<meta property="og:description" content="Node  Node 中文网文档 Express:基于 Node.js 平台，快速、开放、极简的 Web 开发框架。 koa: Koa – 基于 Node.js 平台的下一代 web 开发框架。 Egg:为企业级框架和应用而生。 Meteor: 一个web APP开发框架。 Nodal: Node.js的网络服务器，经过优化可快速高效地构建API服务。 Keystone: 以Express和Mon">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-26T10:32:18.014Z">
+<meta property="article:modified_time" content="2021-05-07T23:23:09.591Z">
+<meta property="article:author" content="spvian">
+<meta name="twitter:card" content="summary"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="spvian"><img width="96" loading="lazy" src="/yun.png" alt="spvian"></a><div class="site-author-name"><a href="/about/">spvian</a></div><span class="site-name">spvian</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">55</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/spvain" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node"><span class="toc-number">1.</span> <span class="toc-text">Node</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue"><span class="toc-number">2.</span> <span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E8%A1%A8%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">图表库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Css-%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">Css 预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">动画库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Js%E6%8F%92%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">Js插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%BA%93"><span class="toc-number">7.</span> <span class="toc-text">工具库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript"><span class="toc-number">8.</span> <span class="toc-text">TypeScript</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-number">9.</span> <span class="toc-text">包管理工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7"><span class="toc-number">10.</span> <span class="toc-text">打包工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">11.</span> <span class="toc-text">测试工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Api-%E6%9F%A5%E8%AF%A2"><span class="toc-number">12.</span> <span class="toc-text">Api 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React"><span class="toc-number">13.</span> <span class="toc-text">React</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Angular"><span class="toc-number">14.</span> <span class="toc-text">Angular</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F"><span class="toc-number">15.</span> <span class="toc-text">微信小程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter"><span class="toc-number">16.</span> <span class="toc-text">Flutter</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://example.com/2021/05/26/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/%E6%B1%87%E6%80%BB/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="spvian"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="spvian"></span><header class="post-header"><h1 class="post-title" itemprop="name headline"></h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-05-26 18:32:18" itemprop="dateCreated datePublished" datetime="2021-05-26T18:32:18+08:00">2021-05-26</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-05-08 07:23:09" itemprop="dateModified" datetime="2021-05-08T07:23:09+08:00">2021-05-08</time></div><div class="post-classify"></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.cn/api/">Node 中文网文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.expressjs.com.cn/">Express</a>:基于 Node.js 平台，快速、开放、极简的 Web 开发框架。</li>
+<li><a target="_blank" rel="noopener" href="https://koa.bootcss.com/">koa</a>: Koa – 基于 Node.js 平台的下一代 web 开发框架。</li>
+<li><a target="_blank" rel="noopener" href="https://eggjs.org/zh-cn/">Egg</a>:为企业级框架和应用而生。</li>
+<li><a target="_blank" rel="noopener" href="https://www.meteor.com/">Meteor</a>: 一个web APP开发框架。</li>
+<li><a target="_blank" rel="noopener" href="http://www.nodaljs.com/">Nodal</a>: Node.js的网络服务器，经过优化可快速高效地构建API服务。</li>
+<li><a target="_blank" rel="noopener" href="https://v3.keystonejs.com/zh">Keystone</a>: 以Express和MongoDB为基础搭建的Node.js CMS和web应用程序平台。</li>
+<li><a target="_blank" rel="noopener" href="https://imfly.gitbooks.io/sailsjs-docs-gitbook/content/cn/">Sails</a>:一个优秀的web后台开发框架。它基于著名的express，添加了很多功能模块，支持REST、各种流行数据库等。</li>
+<li><a target="_blank" rel="noopener" href="https://loopback.io/doc/zh/lb2/">Loopback</a>: LoopBack 框架是由一组Node.js的模块构成的。</li>
+<li><a target="_blank" rel="noopener" href="https://tumobi.gitbooks.io/pomelo/content/1.html">Pomelo</a>:一个轻量级的服务器框架，它最适合的应用领域是网页游戏、社交游戏、移动游戏的服务端，开发者会发现pomelo可以用如此少的代码达到强大的扩展性和伸缩性。。</li>
+<li><a target="_blank" rel="noopener" href="https://www.totaljs.com/">Totaljs</a>: Node.js 的 MVC 框架。</li>
+<li><a target="_blank" rel="noopener" href="https://derbyjs.com/">Derby</a>: DerbyJS 是一个 MVC 框架，帮助编写实时，交互的应用。</li>
+<li><a target="_blank" rel="noopener" href="https://socket.gitbook.io/docs/">Socket</a>: Socket.io是一个类库，可以在浏览器与服务器之间实现实时、双向、基于事件的通信。<a target="_blank" rel="noopener" href="https://socket.io/docs/v3/server-api/index.html">英文</a></li>
+<li><a target="_blank" rel="noopener" href="https://mojito.mx/docs/home">Mojito</a>: 一个模块化的，由源代码控制的拆分测试框架，可让您通过Git / CI构建，启动和分析实验。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.nestjs.cn/">Next</a>: 用于构建高效且可伸缩的服务端应用程序的渐进式 Node.js 框架。</li>
+<li><a target="_blank" rel="noopener" href="https://thinkjs.org/doc/index.html">ThinkJS</a>: 一款面向未来开发的 Node.js 框架，整合了大量的项目最佳实践，让企业级开发变得更简单、高效。</li>
+<li><a target="_blank" rel="noopener" href="http://meanjs.org/">Mean</a></li>
+</ul>
+<hr>
+<h2 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cn.vuejs.org/index.html">Vue2.0</a>：Vue2.0 文档</li>
+<li><a target="_blank" rel="noopener" href="https://vue3js.cn/docs/zh/guide/installation.html">Vue3.0</a>：Vue3.0 文档</li>
+<li><a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/">Vue-Router</a>：Vue.js 官方的路由管理器。</li>
+<li><a target="_blank" rel="noopener" href="https://vuex.vuejs.org/zh/">Vuex</a>：Vue.js 应用程序开发的状态管理模式。</li>
+<li><a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/installation">Element-UI</a>：饿了么UI组件库</li>
+<li><a target="_blank" rel="noopener" href="https://www.iviewui.com/docs/introduce">View UI</a>：一套基于 Vue.js 的开源 UI 组件库，主要服务于 PC 界面的中后台产品。</li>
+<li><a target="_blank" rel="noopener" href="https://vuetifyjs.com/zh-Hans/getting-started/installation/">Vuetify</a>：用于构建功能丰富、快速的应用程序。</li>
+<li><a target="_blank" rel="noopener" href="https://buefy.org/">Buefy-UI</a>： 简单且轻量的UI库。</li>
+<li><a target="_blank" rel="noopener" href="http://www.quasarchs.com/">Quasar</a>: 编写代码一次并同时将其部署为网站、移动应用和/或Electron应用。</li>
+<li><a target="_blank" rel="noopener" href="http://vuematerial.materializecss.cn/#/">Vue Material</a>: 一个轻量级的框架， 建立在谷歌的 Material Design 基础上。</li>
+<li><a target="_blank" rel="noopener" href="https://doc.vux.li/zh-CN/">Vux</a>: 基于WeUI和Vue(2.x)开发的移动端UI组件库，主要服务于微信页面。</li>
+<li><a target="_blank" rel="noopener" href="https://vant-contrib.gitee.io/vant/#/zh-CN/">Vant</a>: 有赞前端团队开源的移动端组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://nutui.jd.com/#/index">NutUI</a>: 一套京东风格的轻量级移动端Vue组件库。</li>
+<li><a target="_blank" rel="noopener" href="http://vue.ydui.org/">YDUI Touch</a>一只基于Vue2.x的移动端&amp;微信UI。</li>
+<li><a target="_blank" rel="noopener" href="https://www.antdv.com/docs/vue/introduce-cn/">Ant Design Vue</a>: Vue UI组件库,开箱即用的高质量 Vue 组件。</li>
+<li><a target="_blank" rel="noopener" href="https://ftf.jd.com/wot-design/#/components/introduction">Wot Design</a>: 根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</li>
+<li><a target="_blank" rel="noopener" href="https://www.vuepress.cn/">VuePress</a>： Vue 驱动的静态网站生成器。</li>
+<li><a target="_blank" rel="noopener" href="https://www.gridsome.cn/">Gridsome</a>： 基于 Vue.js 构建的 Jamstack 框架。让开发人员可以轻松地构建静态生成的网站和应用程序，这些网站和应用程序 。</li>
+<li><a target="_blank" rel="noopener" href="https://better-scroll.github.io/docs/zh-CN/guide/">better-scroll</a>: 解决移动端（已支持PC）各种滚动场景需求的插件。</li>
+<li><a target="_blank" rel="noopener" href="https://vue-multiselect.js.org/#sub-getting-started">vue-multiselect</a>: Vue多选。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ratiw/vue-table">vue-table</a>: vue-table-数据表简化！</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-infinite-scroll">vue-infinite-scroll</a>: vue 的无限滚动插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hilongjw/vue-progressbar">vue-progressbar</a>: Vue 进度条插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zce/vue-devtools">vue-devtools</a>： Vue 游览器调试插件。</li>
+</ul>
+<h2 id="图表库"><a href="#图表库" class="headerlink" title="图表库"></a>图表库</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/c3js/c3">C3.js</a>: C3.js 开源图表库</li>
+<li><a target="_blank" rel="noopener" href="https://chartjs.bootcss.com/">Chart.js</a>：为设计和开发人员准备的简单、灵活的 JavaScript 图表工具。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/gionkunz/chartist-js">Chartist.js</a>: 一个简单的 JavaScript 动画库，你能够自制美丽的响应式图表，或者进行其他创作。</li>
+<li><a target="_blank" rel="noopener" href="https://d3js.org/">D3.js</a>： 一个非常强大的图形JavaScript库。D3.js可以作为图表库的构建块且免费。</li>
+<li><a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Echarts</a>： 数据可视化图表库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/flot/flot">Flot.js</a>： jQuery的Javascript图表库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.highcharts.com.cn/">HighCharts.js</a>：兼容 IE6+、完美支持移动端、图表类型丰富、方便快捷的 HTML5 交互性图表库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.koolchart.com/">koolchart.js</a>：基于HTML5 Canvas的JavaScript图表库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/recharts/recharts">Recharts</a>： Recharts是一个用React和D3构建的重新定义的图表库。</li>
+</ul>
+<h2 id="Css-预处理"><a href="#Css-预处理" class="headerlink" title="Css 预处理"></a>Css 预处理</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.sass.hk/">sass</a>: 世界上最成熟、最稳定、最强大的专业级CSS扩展语言。</li>
+<li><a target="_blank" rel="noopener" href="http://lesscss.cn/">less</a>: 一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</li>
+<li><a target="_blank" rel="noopener" href="https://stylus.bootcss.com/">stylus</a>： 一个高效、动态以及丰富的 CSS 预处理器。</li>
+</ul>
+<h2 id="动画库"><a href="#动画库" class="headerlink" title="动画库"></a>动画库</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://ityped.surge.sh/">iTyped.js</a>: 简单 Javascript 动画输入，没有任何依赖关系。</li>
+<li><a target="_blank" rel="noopener" href="http://www.webgl3d.cn/">Three.js</a>: 3D显示动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.animejs.cn/">Animejs</a>:一个轻量的JavaScript 动画库， 拥有简单而强大的API。可对 CSS 属性、 SVG、 DOM 和JavaScript 对象进行动画。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mojs/mojs">Mo.js</a>： 一款效果非常炫酷的HTML5 SVG气泡导航和波浪式页面切换特效。</li>
+<li><a target="_blank" rel="noopener" href="http://shouce.jb51.net/velocity/">Velocity.js</a>：一个简单易用、高性能、功能丰富的轻量级JS动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://scrollrevealjs.org/">ScrollReveal.js</a>： 一个JavaScript库，用于在元素进入/离开视口时轻松对其进行动画处理。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/thednp/kute.js/">Kute.js</a>： 一个完全成熟的原生 JavaScript 动画引擎，具有跨浏览器动画的基本功能。</li>
+<li><a target="_blank" rel="noopener" href="http://bouncejs.com/">Bounce.js</a>:快速创建漂亮的 CSS3 动画效果。</li>
+<li><a target="_blank" rel="noopener" href="http://dynamicsjs.com/">Dynamicsjs</a>: 一个JavaScript库，用于创建基于物理的动画。</li>
+<li><a target="_blank" rel="noopener" href="https://greensock.com/gsap/">GreenSock.js)</a>:适用于现代网络的专业级JavaScript动画。</li>
+<li><a target="_blank" rel="noopener" href="https://vincentgarreau.com/particles.js/">Particles.js</a>:用于创建粒子的轻量级JavaScript库。</li>
+<li><a target="_blank" rel="noopener" href="https://brm.io/matter-js/">Matter.js</a>:Matter.js是Web的2D物理引擎。</li>
+<li><a target="_blank" rel="noopener" href="http://matthew.wagerfield.com/parallax/">Parallax.js</a>:滚动视差效果封装，便于快速调用实现。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tweenjs/tween.js">Tween.js</a>: 补间动画。</li>
+<li><a target="_blank" rel="noopener" href="http://www.rich-harris.co.uk/ramjet/">Ramjet.js</a>： 制作从一个元素变化为另外一个元素的动效，它能作用于DOM元素、SVG、静态和动态的图片。</li>
+<li><a target="_blank" rel="noopener" href="https://dixonandmoe.com/rellax/">Rellax.js</a>:让页面滚动更有趣的动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/IanLunn/Hover">Hover.css</a>： 一组CSS3动力悬停效果，可应用于链接，按钮，徽标，SVG，特色图像等。</li>
+<li><a target="_blank" rel="noopener" href="https://animista.net/">Animista.css</a>： 一个在线动画生成器，同时也是一个动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://animate.style/">Animate.css</a>：一个来自国外的 CSS3 动画库，它预设了抖动（shake）、闪烁（flash）、弹跳（bounce）、翻转（flip）、旋转（rotateIn/rotateOut）、淡入淡出（fadeIn/fadeOut）等多达 60 多种动画效果。</li>
+<li><a target="_blank" rel="noopener" href="http://vivify.mkcreative.cz/">Vivify.css</a>：一个免费的CSS动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.minimamente.com/project/magic/">Magic Animations CSS3</a>：CSS3 动画库。</li>
+<li><a target="_blank" rel="noopener" href="http://cssanimation.io/index.html">cssanimation</a>：一堆不同动画集合，CSS3 动画包。</li>
+<li><a target="_blank" rel="noopener" href="https://angrytools.com/css/animation/">Angrytools</a>: 可以做动画生成器，同时也是一个动画库。</li>
+</ul>
+<h2 id="Js插件"><a href="#Js插件" class="headerlink" title="Js插件"></a>Js插件</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.swiper.com.cn/">Swiper.js</a>：移动端网站的内容触摸滑动插件。</li>
+<li><a target="_blank" rel="noopener" href="https://glidejs.com/">Glide.js</a>： 一个无依赖关系的JavaScript ES6滑块和carousel。</li>
+<li><a target="_blank" rel="noopener" href="http://code.ciaoca.com/javascript/qrcode/demo/">QRCode.js</a>: 二维码生成插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lipten/slidePage">slidePage.js</a>： slidePage3 特别适合主流前端框架开发，无任何依赖库，一个优化的全屏插件。</li>
+<li><a target="_blank" rel="noopener" href="http://fullpage.81hu.com/">fullPage.js</a>： fullPage.js 是一个基于 jQuery 的插件，它能够很方便、很轻松的制作出全屏网站。</li>
+<li><a target="_blank" rel="noopener" href="https://validatejs.org/">Validate.js</a>: JavaScript表单验证类库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info21370">tree-d3.js</a>： tree 树状图 d3.js。</li>
+<li><a target="_blank" rel="noopener" href="http://www.treejs.cn/v3/demo.php#_602">zTree.js</a>: 树插件。</li>
+<li><a target="_blank" rel="noopener" href="https://www.jstree.com/demo/">jstree</a>: jquery插件，提供交互式树。支持HTML和JSON数据源以及AJAX加载。</li>
+<li><a target="_blank" rel="noopener" href="https://datatables.club/">Datatables.js</a>：一个高度灵活的工具，可以将任何HTML表格添加高级的交互功能。</li>
+<li><a target="_blank" rel="noopener" href="http://www.eyecon.ro/datepicker/">DatePicker.js</a>: 时间选择插件。</li>
+<li><a target="_blank" rel="noopener" href="https://www.layui.com/laydate/">layDate.js</a>: layDate 日期与时间组件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/datejs/Datejs">Date.js</a>: 一个开放源代码的JavaScript Date库，用于解析，格式化和处理。</li>
+<li><a target="_blank" rel="noopener" href="http://www.clipboardjs.cn/">clipboard.js</a>:现代化的拷贝文字插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js/">PDF.js</a>: 一个基于 web 标准的通用 pdf 解析和渲染库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jquery-i18n-properties/jquery-i18n-properties">jquery-i18n</a>: 一个轻量级的jQuery插件，用于像Java Resource Bundles中那样从“ .properties”文件为javascript提供国际化。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/i18next/i18next">i18next</a></li>
+<li><a target="_blank" rel="noopener" href="https://timeline.knightlab.com/#make">TimelineJS</a>: 时间轴插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/amfe/lib-flexible">amfe-flexible</a>： 移动端适配。</li>
+<li><a target="_blank" rel="noopener" href="https://www.lazyloadjs.cn/">lazyLoad.js</a>：Lazy Load延迟加载图像插件，直到用户滚动到它们才显示！</li>
+<li><a target="_blank" rel="noopener" href="http://spin.js.org/">spin.js</a>: Loading界面插件。</li>
+<li><a target="_blank" rel="noopener" href="https://codemirror.net/">CodeMirror.js</a>: 文本编辑器。</li>
+<li><a target="_blank" rel="noopener" href="https://www.tiny.cloud/get-tiny/">TinyMCE.js</a> :文本编辑器。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/videojs/video.js">Video.js</a>: 一个通用的在网页上嵌入视频播放器的 JS 库，Video.js 自动检测浏览器对 HTML5 的支持情况,如果不支持 HTML5 则自动使用 Flash 播放器。</li>
+<li><a target="_blank" rel="noopener" href="https://sweetalert.bootcss.com/">SweetAlert.js</a>: 一个 JavaScript 插件，能够完美替代 JavaScript 自带的 alert 弹出框，并且功能强大、设计优美。</li>
+<li><a target="_blank" rel="noopener" href="http://www.photoswipe.com/">PhotoSwipe.js</a>: 一个 JavaScript 实现的相册组件，没有外部依赖。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/highlightjs/highlight.js">highlight.js</a>: 用JavaScript编写的语法突出显示工具。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fengyuanchen/photo-editor">Cropper.js</a>: 一款非常强大却又简单的图片裁剪工具,它可以进行非常灵活的配置,支持手机端使用,支持包括 IE9 以上的现代浏览器。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/marcuswestin/store.js/">Store.js</a>: 跨浏览器存储插件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/js-cookie/js-cookie">Js-cookie</a>: 一个简单，轻巧的JavaScript API，用于处理Cookie.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ccampbell/mousetrap">Mousetrap.js</a>: 一个用于处理键盘快捷键的简单库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.jq22.com/jquery-info14029">FlexSlider.js</a>: 全屏响应式轮播图插件。</li>
+<li><a target="_blank" rel="noopener" href="https://leafletjs.com/">Leaflet.js</a>: 一个开放源代码的JavaScript库，用于移动友好的交互式地图。</li>
+</ul>
+<h2 id="工具库"><a href="#工具库" class="headerlink" title="工具库"></a>工具库</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jquery123.com/">jQuery</a>: 一个高效、精简并且功能丰富的 JavaScript 工具库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/manual/zeptojs.html">Zepto.js</a>: 一个轻量级的针对现代高级浏览器的JavaScript库， 它与jquery有着类似的api。</li>
+<li><a target="_blank" rel="noopener" href="http://momentjs.cn/">Moment.js</a>: JavaScript 日期处理类库。</li>
+<li><a target="_blank" rel="noopener" href="https://date-fns.org/">date-fns.js</a>: 一个现代的 JavaScript 日期工具类库，提供了最全面、最简单和一致的工具集，用于在浏览器和 Node.js 中操作。</li>
+<li><a target="_blank" rel="noopener" href="https://underscorejs.net/">Underscore.js</a>：是一个JavaScript实用库，提供了一整套函数式编程的实用功能。</li>
+<li><a target="_blank" rel="noopener" href="https://sugarjs.com/">Sugar.js</a>: 一个可以用来处理原生对象的库。</li>
+<li><a target="_blank" rel="noopener" href="https://mathjs.org/">Math.js</a>: Javascript 扩展数学库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.lodashjs.com/">Lodash.js</a>:一个一致性、模块化、高性能的 JavaScript 实用工具库。</li>
+<li><a target="_blank" rel="noopener" href="https://xinyufeng.net/cnhammerjs/getting-started/">cnhammer.js</a>: 一个可以识别触摸、鼠标和点击事件等手势的开放源码类库。</li>
+<li><a target="_blank" rel="noopener" href="https://ramda.cn/">Ramda.js</a>:一款实用的 JavaScript 函数式编程库。</li>
+<li><a target="_blank" rel="noopener" href="http://axios-js.com/zh-cn/docs/index.html">Axios.js</a>:一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dtao/lazy.js">lazy.js</a>: 功能类似 Underscore 和 Lodash。</li>
+<li><a target="_blank" rel="noopener" href="https://vocajs.com/">Voca.js</a>: 一个用于操作字符串的 Javascript 库。</li>
+<li><a target="_blank" rel="noopener" href="https://www.babeljs.cn/">Babel.js</a>: 一个 JavaScript 编译器。</li>
+<li><a target="_blank" rel="noopener" href="http://101.132.137.99/">RequireJS</a>： 一个JavaScript模块加载器。</li>
+<li><a target="_blank" rel="noopener" href="https://cn.rx.js.org/">RxJS</a>: 使用 Observables 的响应式编程的库，它使编写异步或基于回调的代码更容易。</li>
+<li><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/sp/seajs/">sea.js</a>： 一个适用于 Web 浏览器端的模块加载器。</li>
+<li><a target="_blank" rel="noopener" href="http://caibaojian.com/backbone/">Backbone.js</a>: 为复杂Javascript应用程序提供模型(models)、集合(collections)、视图(views)的结构。<a target="_blank" rel="noopener" href="https://backbonejs.org/">英文</a></li>
+<li><a target="_blank" rel="noopener" href="https://revealjs.com/#/">reveal.js</a>: 一个能够帮助我们很轻易地使用 HTML 创建一个漂亮的演示文稿的框架。</li>
+<li><a target="_blank" rel="noopener" href="http://cyclejs.cn/">Cycle.js</a>: 一个函数式和响应式的 JavaScript 框架，编写可观测代码。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/systemjs/systemjs">system.js</a>:一个通用的模块加载器，它能在浏览器或者 NodeJS 上动态加载模块，并且支持 CommonJS、AMD、全局模块对象和 ES6 模块。</li>
+<li><a target="_blank" rel="noopener" href="https://efe.baidu.com/blog/esl-2.0/">ESL.js</a>：一个浏览器端、符合AMD的标准加载器，适合用于现代Web浏览器端应用的入口与模块管理。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Automattic/expect.js/">expect.js</a>: 简约的、适用于 Node.js 和浏览器端的 BDD 式断言工具。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/canjs/canjs">can.js</a>: 客户端JavaScript架构库的集合。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cujojs/most">most.js</a>: 用于反应式编程的工具包。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zurb/foundation-sites.git">foundation.js</a>: 一个支持响应式布局的前端框架。</li>
+<li><a target="_blank" rel="noopener" href="https://semantic-ui.com/">Semantic.js</a>: 一款开发框架，帮助开发者使用对人类友好的 HTML 语言构建优雅的响应式布局。</li>
+<li><a target="_blank" rel="noopener" href="https://bulma.io/">Bulma</a>: 一个基于 Flexbox 布局技术的免费、开源的现代 CSS 框架。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/photonstorm/phaser">Phaser.js</a>: 一款快速、免费以及开源 HTML5 游戏框架，它支持 WebGL 和 Canvas 两种渲染模式，可以在任何 Web 浏览器环境下运行，游戏可以通过第三方工具转为 iOS、Android 支持的 Native APP，允许使用 JavaScript 和 TypeScript 进行开发。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/octokit/request.js/">Request.js</a>: 针对浏览器和节点的请求库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/hammerjs/hammer.js">Hammer.js</a>: 一个开源的,轻量级的 JavaScript 库,它可以在不需要依赖其他东西的情况下识别触摸,鼠标事件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/emberjs/ember.js">Ember.js</a>: 一个开源的 JavaScript 客户端框架，用于开发Web应用程序并使用MVC（模型 - 视图 - 控制器）架构模式。</li>
+<li><a target="_blank" rel="noopener" href="https://www.handlebarsjs.cn/">handlebars.js</a>: 一个 JavaScript 语义模板库，通过对视图（view）和数据的分离来快速构建 Web 模板。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jquery/jquery-ui">jqueryui</a>: jQuery UI 是建立在 jQuery JavaScript 库上的一组用户界面交互、特效、小部件及主题。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jquery/sizzle">Sizzle.js</a>: 一个纯 JavaScript 实现的 CSS 选择器引擎。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/RubyLouvre/avalon">Avalon.js</a>: 一个迷你、易用、高性能的前端MVVM框架。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jprichardson/string.js">String.js</a>: JavaScript字符串中没有包含的方法，例如转义html、解码html实体、剥离标记等。</li>
+</ul>
+<h2 id="TypeScript"><a href="#TypeScript" class="headerlink" title="TypeScript"></a>TypeScript</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.tslang.cn/">typeScript文档</a>： JavaScript 类型超集，可以编译成纯JavaScript 。</li>
+</ul>
+<h2 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.cn/">npm</a>: 包管理工具。</li>
+<li><a target="_blank" rel="noopener" href="https://yarn.bootcss.com/">yarn</a>: 快速、可靠、安全的依赖管理工具。</li>
+<li><a target="_blank" rel="noopener" href="https://blog.lsqy.space/2016/05/03/160503Bower%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3/">bower</a></li>
+</ul>
+<h2 id="打包工具"><a href="#打包工具" class="headerlink" title="打包工具"></a>打包工具</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.gulpjs.com.cn/">gulp</a>: 用自动化构建工具增强你的工作流程。</li>
+<li><a target="_blank" rel="noopener" href="https://www.webpackjs.com/">webpack</a>: 一个现代 JavaScript 应用程序的静态模块打包器。</li>
+<li><a target="_blank" rel="noopener" href="https://www.gruntjs.net/">grunt</a>: 基于 Node.js 的项目构建工具。</li>
+<li><a target="_blank" rel="noopener" href="https://zh.parceljs.org/getting_started.html">Parcel</a>: Web 应用打包工具，适用于经验不同的开发者。</li>
+<li><a target="_blank" rel="noopener" href="https://www.rollupjs.com/">rollup</a>: 一个 JavaScript 模块打包器，可以将小块代码编译成大块复杂的代码。</li>
+</ul>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cn.eslint.org/">eslint</a>： 可组装的JavaScript和JSX检查工具。</li>
+<li><a target="_blank" rel="noopener" href="https://jestjs.io/zh-Hans/">Jest</a>： 一个令人愉快的 JavaScript 测试框架，专注于简洁明快。</li>
+<li><a target="_blank" rel="noopener" href="https://mochajs.cn/">mocha</a>： 一个功能丰富的javascript测试框架，运行在node.js和浏览器中，使异步测试变得简单有趣。</li>
+<li><a target="_blank" rel="noopener" href="https://jshint.com/docs/">JSHint</a>: 用于标记用JavaScript编写的程序中的可疑用法。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jscs-dev/node-jscs">JScs.js</a>: 验证JavaScript代码。</li>
+</ul>
+<h2 id="Api-查询"><a href="#Api-查询" class="headerlink" title="Api 查询"></a>Api 查询</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://https//overapi.com/.com/">overapi</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.javascripting.com/">javascripting</a></li>
+<li><a target="_blank" rel="noopener" href="https://tool.oschina.net/apidocs">开源中国在线API文档合集</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/">菜鸟教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://devdocs.io/">devdocs</a>: 英文文档</li>
+</ul>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh-hans.reactjs.org/">React入门文档</a>: 用于构建用户界面的 JavaScript 库。</li>
+<li><a target="_blank" rel="noopener" href="https://react-guide.github.io/react-router-cn/">React-router</a>: React路由。</li>
+<li><a target="_blank" rel="noopener" href="https://www.redux.org.cn/">React-Redux</a>: React 状态容器。</li>
+<li><a target="_blank" rel="noopener" href="https://ant.design/index-cn">Ant Design React</a>: 阿里巴巴团队出品的ReactUI组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://material-ui.com/zh/">Material-UI</a>: React 组件用于更快速、更简便的 web 开发。</li>
+<li><a target="_blank" rel="noopener" href="http://react.tgwoo.com/">React-Bootstrap</a>: 可重用的前端组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://mobile.ant.design/index-cn">Ant Design Mobile</a>: 一个基于 Preact / React / React Native 的 UI 组件库（移动端）。</li>
+<li><a target="_blank" rel="noopener" href="http://ui.baifendian.com/">BFD UI</a>: BFD UI —— 企业级 React 组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://reactnative.cn/">React Native</a>: 使用JavaScript和React编写原生移动应用。</li>
+<li><a target="_blank" rel="noopener" href="http://react-toolbox.io/">React-toolbox</a>： 一组实现Google的Material Design规范的React组件。</li>
+<li><a target="_blank" rel="noopener" href="https://bizcharts.net/">BizCharts</a>: 阿里通用图表组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dvajs/dva/blob/master/README_zh-CN.md">dva</a>: 基于 redux、redux-saga 和 react-router 的轻量级前端框架。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/react-cropper/react-cropper">react-cropper</a>: React图像裁剪器。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/twobin/react-lazyload">react-lazyload</a>： React 懒加载组件（组件、图片等）。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/chenglou/react-treeview">react-treeview</a>： React实现的简单、轻量级、灵活的树视图。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/chenglou/react-motion">react-motion</a>： React 弹性动画库。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/CookPete/react-player">react-player</a>：用于播放各种url，包括文件路径、YouTube、Facebook、Twitch、SoundCloud、Streamable、Vimeo、Wistia、Mixcloud和DailyMotion。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/casesandberg/react-color">react-color</a>： 颜色选择器。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zenoamaro/react-quill">react-quill</a>： React 富文本编辑器。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Hacker0x01/react-datepicker">react-datepicker</a>： React 日期选择组件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/fisshy/react-scroll">react-scroll</a>： React 滚动组件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/voronianski/react-swipe">react-swipe</a>： React 轮播组件。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/reduxjs/redux-devtools">redux-devtools</a>： react 游览器调试插件。</li>
+<li><a target="_blank" rel="noopener" href="http://react-china.org/">React 社区</a></li>
+</ul>
+<h2 id="Angular"><a href="#Angular" class="headerlink" title="Angular"></a>Angular</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://angular.cn/docs">Angular文档</a>： 一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。</li>
+<li><a target="_blank" rel="noopener" href="https://ng.ant.design/docs/introduce/zh">Ant Design Angular</a>: Ant Design 设计规范的 Angular UI 组件库。</li>
+<li><a target="_blank" rel="noopener" href="https://devui.design/home">DevUI</a>: 一款开源免费的企业中后台产品前端的通用解决方案。</li>
+<li><a target="_blank" rel="noopener" href="https://ngnest.com/index/docs/zh_CN/ng-nest">NG-NEST</a>： 一个开源的 Web 应用程序框架，基于 Angular 和 Nest ，主要用于研发企业级中后台产品。</li>
+<li><a target="_blank" rel="noopener" href="https://ng.mobile.ant.design/#/docs/introduce/zh">Ant Design Mobile Angular</a>： Ant Design 设计规范的 Angular UI 组件库(移动端)。</li>
+<li><a target="_blank" rel="noopener" href="https://material.angular.cn/">Angular Material</a>: 使用横跨 Web、Mobile 和桌面环境的综合性组件库构建现代应用。</li>
+<li><a target="_blank" rel="noopener" href="https://www.bootcdn.cn/angular-animate/">Angular-animate</a>:</li>
+<li><a target="_blank" rel="noopener" href="https://www.ituring.com.cn/book/1206">AngularJS入门教程</a></li>
+</ul>
+<h2 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信小程序文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.wetouch.net/touchwx_doc/">TouchUI WX</a>: 一套完全免费的微信小程序开发框架，扩展了小程序的能力。</li>
+<li><a target="_blank" rel="noopener" href="https://wepyjs.github.io/wepy-docs/">WePY</a>:让小程序支持组件化开发的框架,一个最受欢迎的小程序框架.</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/Meituan-Dianping/mpvue">mpvue</a>:一个使用 Vue.js 开发小程序的前端框架。</li>
+<li><a target="_blank" rel="noopener" href="http://taro-docs.jd.com/taro/docs/README/index.html">taro</a>: 一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ 小程序 / H5 等应用。</li>
+<li><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/">uni-app</a>: 一个使用 Vue.js 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉/淘宝）、快应用等多个平台。</li>
+</ul>
+<h2 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h2><hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://flutterchina.club/get-started/install/">Flutter 文档</a>： Google一个新的用于构建跨平台的手机App的SDK。</li>
+<li><a target="_blank" rel="noopener" href="https://flutterchina.club/">Flutter中文网﻿</a></li>
+</ul>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>spvian</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://example.com/2021/05/26/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/%E6%B1%87%E6%80%BB/" title="">http://example.com/2021/05/26/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/%E6%B1%87%E6%80%BB/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/05/26/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="prev" title=""><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text"></span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/05/26/Spring%20Boot/2021-01-30-17_Spring-Boot-CORS/" rel="next" title="Spring Boot CORS"><span class="post-nav-text">Spring Boot CORS</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> spvian</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.1</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><div class="aplayer no-destroy" id="aplayer" data-id="308168565" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay data-theme="#0078E7" data-loop="all" data-order="list" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></div></body></html>

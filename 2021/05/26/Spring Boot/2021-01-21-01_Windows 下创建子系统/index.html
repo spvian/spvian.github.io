@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="spvian"><meta name="copyright" content="spvian"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>Windows 下创建子系统 | spvian</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.24/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_j5gk85dg4pf.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>document.addEventListener("DOMContentLoaded", () => {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+});
+</script><link rel="icon" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="alternate icon" href="/yun.ico"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"永远相信未来","version":"1.6.1","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn","hitokoto":true},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><meta name="description" content="什么是WSL来自百度百科的回答  Windows Subsystem for Linux（简称 WSL）是一个为在 Windows 10 上能够原生运行 Linux 二进制可执行文件（ELF 格式）的兼容层。它是由微软与 Canonical 公司合作开发，目标是使纯正的 Ubuntu 14.04 “Trusty Tahr”映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 下创建子系统">
+<meta property="og:url" content="http://example.com/2021/05/26/Spring%20Boot/2021-01-21-01_Windows%20%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="spvian">
+<meta property="og:description" content="什么是WSL来自百度百科的回答  Windows Subsystem for Linux（简称 WSL）是一个为在 Windows 10 上能够原生运行 Linux 二进制可执行文件（ELF 格式）的兼容层。它是由微软与 Canonical 公司合作开发，目标是使纯正的 Ubuntu 14.04 “Trusty Tahr”映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/IeRxVoPWAH2cZ1k.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/iScRJ6HPZX4gTnr.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/eoDMLh4iWAU9Rlw.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/Cgl6T4feQJWhoOm.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/s9xi3MRGWvODUgo.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/Svu2eaj8VYBzQL1.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/hSHLq2QZtXegEVa.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/Pm2j3JTdWs6oIOY.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/4iFhnHsqWKS1ulG.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/5XxowyRqZBtTfhQ.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/miFpMrqsYDH18tz.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/9wJvZN81pSxVEKG.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/21/vLZKFINrtMPJASu.png">
+<meta property="article:published_time" content="2021-05-26T10:32:17.774Z">
+<meta property="article:modified_time" content="2021-01-27T16:58:42.696Z">
+<meta property="article:author" content="spvian">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/21/IeRxVoPWAH2cZ1k.png"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="spvian"><img width="96" loading="lazy" src="/yun.png" alt="spvian"></a><div class="site-author-name"><a href="/about/">spvian</a></div><span class="site-name">spvian</span><sub class="site-subtitle"></sub><div class="site-desciption"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">55</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">4</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="文档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/spvain" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFWSL"><span class="toc-number">1.</span> <span class="toc-text">什么是WSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E4%BA%8E%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">1.1.</span> <span class="toc-text">相对于虚拟机的优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E4%BA%8E%E5%A4%9A%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">1.2.</span> <span class="toc-text">相对于多系统的优势</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.1.</span> <span class="toc-text">手动安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E9%80%82%E7%94%A8%E4%BA%8E-Linux-%E7%9A%84-Windows-%E5%AD%90%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.1.</span> <span class="toc-text">启用适用于 Linux 的 Windows 子系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E8%BF%90%E8%A1%8C-WSL-2-%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-number">2.1.2.</span> <span class="toc-text">检查运行 WSL 2 的要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%AF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8A%9F%E8%83%BD"><span class="toc-number">2.1.3.</span> <span class="toc-text">启用虚拟机功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD-Linux-%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0%E5%8C%85"><span class="toc-number">2.1.4.</span> <span class="toc-text">下载 Linux 内核更新包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86-WSL-2-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC"><span class="toc-number">2.1.5.</span> <span class="toc-text">将 WSL 2 设置为默认版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%89%80%E9%80%89%E7%9A%84-Linux-%E5%88%86%E5%8F%91"><span class="toc-number">2.1.6.</span> <span class="toc-text">安装所选的 Linux 分发</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E7%BD%AE-Linux-%E5%AF%86%E7%A0%81"><span class="toc-number">2.1.6.1.</span> <span class="toc-text">重置 Linux 密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%BF%98%E8%AE%B0%E5%AF%86%E7%A0%81"><span class="toc-number">2.1.6.2.</span> <span class="toc-text">忘记密码</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%87%E6%8D%A2%E6%BA%90%E5%B9%B6%E6%9B%B4%E6%96%B0"><span class="toc-number">3.</span> <span class="toc-text">切换源并更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2"><span class="toc-number">4.</span> <span class="toc-text">配置图形界面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-number">4.1.</span> <span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85-VcXsrv"><span class="toc-number">4.2.</span> <span class="toc-text">下载并安装 VcXsrv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-VcXsrv"><span class="toc-number">4.3.</span> <span class="toc-text">启动 VcXsrv</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-DISPLAY"><span class="toc-number">4.3.1.</span> <span class="toc-text">配置 DISPLAY</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C"><span class="toc-number">4.4.</span> <span class="toc-text">检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="toc-number">4.5.</span> <span class="toc-text">解决中文乱码问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%E4%B8%BA%E4%B8%AD%E6%96%87%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">4.6.</span> <span class="toc-text">修改默认语言环境为中文（可选）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%A1%8C%E9%9D%A2"><span class="toc-number">4.7.</span> <span class="toc-text">安装桌面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95"><span class="toc-number">4.8.</span> <span class="toc-text">中文输入法</span></a></li></ol></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="http://example.com/2021/05/26/Spring%20Boot/2021-01-21-01_Windows%20%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B3%BB%E7%BB%9F/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="spvian"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="spvian"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Windows 下创建子系统</h1><div class="post-meta"><div class="post-time" style="display:inline-block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="Created: 2021-05-26 18:32:17" itemprop="dateCreated datePublished" datetime="2021-05-26T18:32:17+08:00">2021-05-26</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="Modified: 2021-01-28 00:58:42" itemprop="dateModified" datetime="2021-01-28T00:58:42+08:00">2021-01-28</time></div><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E6%95%99%E7%A8%8B/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">教程</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><h2 id="什么是WSL"><a href="#什么是WSL" class="headerlink" title="什么是WSL"></a>什么是WSL</h2><p>来自<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/wsl/20359185">百度百科</a>的回答</p>
+<blockquote>
+<p>Windows Subsystem for Linux（简称 WSL）是一个为在 Windows 10 上能够原生运行 Linux 二进制可执行文件（ELF 格式）的兼容层。它是由微软与 Canonical 公司合作开发，目标是使纯正的 Ubuntu 14.04 “Trusty Tahr”映像能下载和解压到用户的本地计算机，并且映像内的工具和实用工具能在此子系统上原生运行。</p>
+</blockquote>
+<h3 id="相对于虚拟机的优势"><a href="#相对于虚拟机的优势" class="headerlink" title="相对于虚拟机的优势"></a>相对于虚拟机的优势</h3><p>相比于 VMware 等虚拟机，WSL 占用内存和 CPU 资源更少，在 WSL 上运行软件的消耗和直接在 Windows 上差不多。而且，Windows 下可以直接访问 WSL 的环境。</p>
+<h3 id="相对于多系统的优势"><a href="#相对于多系统的优势" class="headerlink" title="相对于多系统的优势"></a>相对于多系统的优势</h3><p>假如需要重启 Linux 系统，WSL 只需要把软件关掉重开即可。同时，相较于多系统，文件交互也更为简单。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="手动安装步骤"><a href="#手动安装步骤" class="headerlink" title="手动安装步骤"></a>手动安装步骤</h3><h4 id="启用适用于-Linux-的-Windows-子系统"><a href="#启用适用于-Linux-的-Windows-子系统" class="headerlink" title="启用适用于 Linux 的 Windows 子系统"></a>启用适用于 Linux 的 Windows 子系统</h4><p>在控制面板中选择程序，在程序和功能中可以看到[启动或关闭 Windows 功能」中勾选「适用于 Linux 的 Windows 子系统] 。或者可以使用命令的方式打开。</p>
+<p><strong>以管理员身份打开 PowerShell 并运行：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows</span><span class="literal">-Subsystem</span><span class="literal">-Linux</span> /all /norestart</span><br></pre></td></tr></table></figure>
+
+<img src="https://i.loli.net/2021/01/21/IeRxVoPWAH2cZ1k.png" alt="image-20210121151303582" style="zoom:80%;" / loading="lazy">
+
+
+
+<h4 id="检查运行-WSL-2-的要求"><a href="#检查运行-WSL-2-的要求" class="headerlink" title="检查运行 WSL 2 的要求"></a>检查运行 WSL 2 的要求</h4><p>若要更新到 WSL 2，需要运行 Windows 10。</p>
+<ul>
+<li>对于 x64 系统：<strong>版本 1903</strong> 或更高版本，采用 <strong>内部版本 18362</strong> 或更高版本。</li>
+<li>对于 ARM64 系统：<strong>版本 2004</strong> 或更高版本，采用 <strong>内部版本 19041</strong> 或更高版本。</li>
+<li>低于 18362 的版本不支持 WSL 2。 使用 <a target="_blank" rel="noopener" href="https://www.microsoft.com/software-download/windows10">Windows Update 助手</a>更新 Windows 版本。</li>
+</ul>
+<p>若要检查 Windows 版本及内部版本号，选择 Windows 徽标键 + R，然后键入“winver”，选择“确定”。</p>
+<p>如果运行的是 Windows 10 版本1903 或 1909， 内部版本号必须是 18362.1049+ 或 18363.1049+，次要内部版本号需要高于 .1049。</p>
+<p><img src="https://i.loli.net/2021/01/21/iScRJ6HPZX4gTnr.png" alt="image-20210121152015640" loading="lazy"></p>
+<h4 id="启用虚拟机功能"><a href="#启用虚拟机功能" class="headerlink" title="启用虚拟机功能"></a>启用虚拟机功能</h4><p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。</p>
+<p>以管理员身份打开 PowerShell 并运行：</p>
+<p><strong>重新启动</strong> 计算机，以完成 WSL 安装并更新到 WSL 2。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="下载-Linux-内核更新包"><a href="#下载-Linux-内核更新包" class="headerlink" title="下载 Linux 内核更新包"></a>下载 Linux 内核更新包</h4><ol>
+<li>下载最新包：</li>
+</ol>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://spvian.lanzous.com/i4bhHknavpe">wsl_update_x64</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://spvian.lanzous.com/i5FZJknb3xa">wsl_update_arm64</a></p>
+</li>
+</ul>
+<p>如果不确定自己计算机的类型，可以打开控制面板查看</p>
+<p><img src="https://i.loli.net/2021/01/21/eoDMLh4iWAU9Rlw.png" alt="image-20210121153713299" loading="lazy"></p>
+<ol start="2">
+<li><p>运行上一步中下载的更新包</p>
+<p>双击以运行 - 系统将提示你提供提升的权限，选择“是”以批准此安装。</p>
+</li>
+</ol>
+<h4 id="将-WSL-2-设置为默认版本"><a href="#将-WSL-2-设置为默认版本" class="headerlink" title="将 WSL 2 设置为默认版本"></a>将 WSL 2 设置为默认版本</h4><p>打开 PowerShell，然后在安装新的 Linux 发行版时运行以下命令，将 WSL 2 设置为默认版本：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl -<span class="literal">-set</span><span class="literal">-default</span><span class="literal">-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="安装所选的-Linux-分发"><a href="#安装所选的-Linux-分发" class="headerlink" title="安装所选的 Linux 分发"></a>安装所选的 Linux 分发</h4><p>单击以下链接会打开每个分发版的 Microsoft Store 页面：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9pjn388hp8c9">Ubuntu 16.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N9TNGVNDL3Q">Ubuntu 18.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6svws3rx71">Ubuntu 20.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NJFZK00FGKV">openSUSE Leap 15.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MZ3D1TRP8T1">SUSE Linux Enterprise Server 12 SP5</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PN498VPMF3Z">SUSE Linux Enterprise Server 15 SP1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PKR34TNCV07">Kali Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MSVKQC78PK6">Debian GNU/Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6gdm4k2hnc">Fedora Remix for WSL</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NV1GV1PXZ6P">Pengwin</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N8LP0X93VCP">Pengwin Enterprise</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9p804crf0395">Alpine WSL</a></li>
+</ul>
+<p>在分发版的页面中，选择“获取”。</p>
+<p><img src="https://i.loli.net/2021/01/21/Cgl6T4feQJWhoOm.png" alt="image-20210121154239160" loading="lazy"></p>
+<p>首次启动新安装的 Linux 分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。 未来的所有启动时间应不到一秒。</p>
+<p><img src="https://i.loli.net/2021/01/21/s9xi3MRGWvODUgo.png" alt="image-20210121154608425" loading="lazy"></p>
+<p>输入用户名和密码后，会提示安装成功。此帐户将被视为 Linux 管理员，能够运行 <code>sudo</code> (Super User Do) 管理命令。</p>
+<p><img src="https://i.loli.net/2021/01/21/Svu2eaj8VYBzQL1.png" alt="image-20210121154735485" loading="lazy"></p>
+<p>如果出现Enter new UNIX username: user 参考的对象类型不支持尝试的操作。运行 NoLsp.exe。</p>
+<p>使用管理员身份启动PowerShell</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://spvian.lanzous.com/iMvqNknciud">NoLsp.exe</a></p>
+</li>
+<li><p>输入D:\NoLsp.exe C:\windows\system32\wsl.exe（这里注意你自己下载的NoLsp.exe位置）</p>
+</li>
+</ul>
+<h5 id="重置-Linux-密码"><a href="#重置-Linux-密码" class="headerlink" title="重置 Linux 密码"></a>重置 Linux 密码</h5><p>若要更改密码，请打开 Linux 分发版（例如 Ubuntu）并输入以下命令：<code>passwd</code></p>
+<p>系统会要求你输入当前密码，然后要求输入新密码，之后再确认新密码。</p>
+<h5 id="忘记密码"><a href="#忘记密码" class="headerlink" title="忘记密码"></a>忘记密码</h5><p>如果忘记了 Linux 分发版的密码：</p>
+<ol>
+<li><p>请打开 PowerShell，并使用以下命令进入默认 WSL 分发版的根目录：<code>wsl -u root</code></p>
+<blockquote>
+<p>如果需要在非默认分发版中更新忘记的密码，请使用命令：<code>wsl -d Debian -u root</code>，并将 <code>Debian</code> 替换为目标分发版的名称。</p>
+</blockquote>
+</li>
+<li><p>在 PowerShell 内的根级别打开 WSL 发行版后，可使用此命令更新密码：<code>passwd &lt;WSLUsername&gt;</code>，其中 <code>&lt;WSLUsername&gt;</code> 是 DISTRO 中帐户的用户名，而你忘记了它的密码。</p>
+</li>
+<li><p>系统将提示你输入新的 UNIX 密码，然后确认该密码。 在被告知密码已成功更新后，请使用以下命令在 PowerShell 内关闭 WSL：<code>exit</code></p>
+</li>
+</ol>
+<h2 id="切换源并更新"><a href="#切换源并更新" class="headerlink" title="切换源并更新"></a>切换源并更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list</span><br><span class="line">sudo apt update -y</span><br><span class="line">sudo apt upgrade -y</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置图形界面"><a href="#配置图形界面" class="headerlink" title="配置图形界面"></a>配置图形界面</h2><p>如果要运行一些带图形界面的程序，WSL 原生是没有支持 GUI 的。这里通过 XServer 实现可视化操作，用到的软件是<code>VcXsrv</code>。</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><ol>
+<li>VcXsrv 启动 Xserver 服务用于监听；</li>
+<li>WSL 启动程序后把界面数据发送给 Xserver；</li>
+<li>Xserver 接收到数据进行绘制，于是在 Win 下看到图形界面。</li>
+</ol>
+<h3 id="下载并安装-VcXsrv"><a href="#下载并安装-VcXsrv" class="headerlink" title="下载并安装 VcXsrv"></a>下载并安装 VcXsrv</h3><p><a target="_blank" rel="noopener" href="https://spvian.lanzous.com/i5hSjkndp6h">vcxsrv-64.1.20.8.1.installer</a></p>
+<p>一路 next 即可。第一步是选择组件，默认是全部安装；第二步是安装路径。</p>
+<h3 id="启动-VcXsrv"><a href="#启动-VcXsrv" class="headerlink" title="启动 VcXsrv"></a>启动 VcXsrv</h3><p>开始菜单里现在出现了一个XLaunch，运行它</p>
+<p>下面是我的配置</p>
+<p><img src="https://i.loli.net/2021/01/21/hSHLq2QZtXegEVa.png" alt="image-20210121161144647" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/01/21/Pm2j3JTdWs6oIOY.png" alt="image-20210121161303808" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/01/21/4iFhnHsqWKS1ulG.png" alt="image-20210121161316674" loading="lazy"></p>
+<p><img src="https://i.loli.net/2021/01/21/5XxowyRqZBtTfhQ.png" alt="image-20210121161540108" loading="lazy"></p>
+<h4 id="配置-DISPLAY"><a href="#配置-DISPLAY" class="headerlink" title="配置 DISPLAY"></a>配置 DISPLAY</h4><p>运行如下代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export DISPLAY=ip:0.0&quot;</span> &gt;&gt; ~/.bashrc  //ip是指window下的ip，可以使用ipconfig查看</span><br><span class="line"></span><br><span class="line">//更新配置</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h3><p>运行下述代码，安装 firefox 检验效果：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install firefox</span><br></pre></td></tr></table></figure>
+
+<p>随后直接运行下述代码即可查看效果。<strong>前提使在root账户下</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firefox</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/01/21/miFpMrqsYDH18tz.png" alt="image-20210121162343948" loading="lazy"></p>
+<h3 id="解决中文乱码问题"><a href="#解决中文乱码问题" class="headerlink" title="解决中文乱码问题"></a>解决中文乱码问题</h3><p>运行下述代码，成功解决。现在可以正常显示中文了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fonts-noto-cjk</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/01/21/9wJvZN81pSxVEKG.png" alt="image-20210121162628693" loading="lazy"></p>
+<h3 id="修改默认语言环境为中文（可选）"><a href="#修改默认语言环境为中文（可选）" class="headerlink" title="修改默认语言环境为中文（可选）"></a>修改默认语言环境为中文（可选）</h3><p>安装中文语言包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install language-pack-zh-hans language-pack-zh-hans-base</span><br></pre></td></tr></table></figure>
+
+<p>设置本地化环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;LANG=zh_CN.UTF-8&quot;</span> &gt;&gt; ~/.profile</span><br><span class="line"><span class="built_in">source</span> ~/.profile</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装桌面"><a href="#安装桌面" class="headerlink" title="安装桌面"></a>安装桌面</h3><p>这里选择<code>xfce4</code>桌面，它的优点是轻量、美观、占用系统资源少。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xfce4 dbus-x11</span><br></pre></td></tr></table></figure>
+
+<p>完成后，执行下面这段代码就可以看到桌面的图形界面了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfce4-session  </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/01/21/vLZKFINrtMPJASu.png" alt="image-20210121163949840" loading="lazy"></p>
+<h3 id="中文输入法"><a href="#中文输入法" class="headerlink" title="中文输入法"></a>中文输入法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fcitx fcitx-pinyin</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;export XMODIFIERS=@im=fcitx\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\n&quot;</span> &gt;&gt; .profile</span><br></pre></td></tr></table></figure>
+
+<p>软件包已装，在应用程序 - 设置 - 会话与启动 - 应用程序自启动，添加 /usr/bin/fcitx。</p>
+<p>到此，windows安装子系统已基本完成</p>
+</div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>spvian</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://example.com/2021/05/26/Spring%20Boot/2021-01-21-01_Windows%20%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B3%BB%E7%BB%9F/" title="Windows 下创建子系统">http://example.com/2021/05/26/Spring%20Boot/2021-01-21-01_Windows%20%E4%B8%8B%E5%88%9B%E5%BB%BA%E5%AD%90%E7%B3%BB%E7%BB%9F/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> unless otherwise stated.</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2021/05/26/Spring%20Boot/2021-01-23-04_Windows%20%E5%AD%90%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E8%BD%AF%E4%BB%B6/" rel="prev" title="Windows 子系统安装开发软件"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">Windows 子系统安装开发软件</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2021/05/26/Spring%20Boot/2021-01-22-02_%E5%AD%90%E7%B3%BB%E7%BB%9F%E4%B8%8E%20Windows%20%E6%96%87%E4%BB%B6%E4%BA%92%E4%BC%A0/" rel="next" title="Windows 与子系统文件互传"><span class="post-nav-text">Windows 与子系统文件互传</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>要不要和我说些什么？</span><br></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2021 </span><span class="with-love" id="animate"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></span><span class="author"> spvian</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v5.4.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.6.1</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><div class="aplayer no-destroy" id="aplayer" data-id="308168565" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay data-theme="#0078E7" data-loop="all" data-order="list" data-preload="auto" data-volume="0.7" data-mutex data-lrctype="0" data-listmaxheight="340px" data-storagename="metingjs"></div></div></body></html>
